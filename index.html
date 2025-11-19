@@ -3,134 +3,96 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Online Courses</title>
-
+  <title>Online Courses Catalog</title>
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-100 font-sans">
 
-<body class="bg-gray-100 text-gray-900 font-inter">
-
-  <!-- HEADER -->
-  <header class="p-6 mx-4 mt-6">
-    <h1 class="text-3xl font-bold">Online Courses List</h1>
-    <p class="text-gray-600 mt-1">Search and sign up for courses</p>
+  <!-- Header -->
+  <header class="bg-blue-50 p-6 rounded-b-lg shadow-md mb-6 text-center">
+    <h1 class="text-2xl font-bold text-gray-800">Online Courses Catalog</h1>
+    <p class="text-gray-600 mt-1">Browse, filter, sort, and sign up for courses</p>
   </header>
 
-  <main class="max-w-6xl mx-auto p-4">
+  <main class="max-w-6xl mx-auto px-4">
 
-    <!-- CONTROLS -->
-    <section class="flex flex-col md:flex-row md:justify-between gap-4 my-4">
-
-      <div class="flex flex-col md:flex-row gap-3 w-full md:w-auto">
-        <input id="search"
-               placeholder="Search by title or instructor"
-               class="px-3 py-2 rounded-lg border border-gray-300 w-full md:w-64" />
-
-        <select id="categoryFilter"
-                class="px-3 py-2 rounded-lg border border-gray-300">
-          <option value="all">All categories</option>
-        </select>
-
-        <select id="sortSelect"
-                class="px-3 py-2 rounded-lg border border-gray-300">
-          <option value="default">Sort: Default</option>
-          <option value="rating-desc">Rating: High → Low</option>
-          <option value="rating-asc">Rating: Low → High</option>
-          <option value="price-asc">Price: Low → High</option>
-          <option value="price-desc">Price: High → Low</option>
-          <option value="enrolled-desc">Enrolled: High → Low</option>
-        </select>
-      </div>
-
-      <div class="flex items-center gap-2">
-        <label for="perPage" class="text-sm font-medium">Per page</label>
-        <select id="perPage"
-                class="px-3 py-2 rounded-lg border border-gray-300">
-          <option>4</option>
-          <option>6</option>
-          <option>8</option>
-        </select>
-      </div>
-
+    <!-- Filters and Controls -->
+    <section class="flex flex-wrap justify-between gap-4 mb-6">
+      <input id="search" placeholder="Search by title or instructor" class="p-2 rounded border border-gray-300 flex-1"/>
+      <select id="categoryFilter" class="p-2 rounded border border-gray-300">
+        <option value="all">All categories</option>
+      </select>
+      <select id="sortSelect" class="p-2 rounded border border-gray-300">
+        <option value="default">Sort: Default</option>
+        <option value="rating-desc">Rating: High → Low</option>
+        <option value="rating-asc">Rating: Low → High</option>
+        <option value="price-asc">Price: Low → High</option>
+        <option value="price-desc">Price: High → Low</option>
+        <option value="enrolled-desc">Enrolled: High → Low</option>
+      </select>
+      <select id="perPage" class="p-2 rounded border border-gray-300">
+        <option>4</option>
+        <option>6</option>
+        <option>8</option>
+      </select>
     </section>
 
-    <!-- COURSES -->
-    <section id="coursesList"
-             class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-6"
-             aria-live="polite"></section>
+    <!-- Courses Grid -->
+    <section id="coursesList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-6"></section>
 
-    <!-- PAGINATION -->
-    <nav id="pagination" class="flex justify-center gap-2 my-6"></nav>
+    <!-- Pagination -->
+    <nav id="pagination" class="flex justify-center gap-2 mb-8"></nav>
 
-    <hr class="my-10 border-gray-300" />
+    <hr class="my-8"/>
 
-    <!-- SIGNUP FORM -->
-    <section class="bg-white p-6 rounded-xl shadow">
+    <!-- Signup Form -->
+    <section class="bg-white p-6 rounded-lg shadow-md mb-12">
       <h2 class="text-xl font-semibold mb-4">Sign up for a course</h2>
-
       <form id="signupForm" novalidate class="space-y-4">
-
         <div>
-          <label for="name" class="font-medium">Full name</label>
-          <input id="name" name="name"
-                 class="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300" />
-          <small class="error text-red-600 text-sm" data-for="name"></small>
+          <label for="name" class="block mb-1">Full Name</label>
+          <input id="name" name="name" required minlength="3" class="w-full p-2 border border-gray-300 rounded"/>
+          <small class="text-red-600" data-for="name"></small>
         </div>
-
         <div>
-          <label for="email" class="font-medium">Email</label>
-          <input id="email" name="email" type="email"
-                 class="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300" />
-          <small class="error text-red-600 text-sm" data-for="email"></small>
+          <label for="email" class="block mb-1">Email</label>
+          <input id="email" name="email" type="email" required class="w-full p-2 border border-gray-300 rounded"/>
+          <small class="text-red-600" data-for="email"></small>
         </div>
-
         <div>
-          <label for="password" class="font-medium">Password</label>
-          <input id="password" name="password" type="password"
-                 class="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300" />
-          <small class="error text-red-600 text-sm" data-for="password"></small>
+          <label for="password" class="block mb-1">Password</label>
+          <input id="password" name="password" type="password" required minlength="6" class="w-full p-2 border border-gray-300 rounded"/>
+          <small class="text-red-600" data-for="password"></small>
         </div>
-
         <div>
-          <label for="confirm" class="font-medium">Confirm Password</label>
-          <input id="confirm" name="confirm" type="password"
-                 class="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300" />
-          <small class="error text-red-600 text-sm" data-for="confirm"></small>
+          <label for="confirm" class="block mb-1">Confirm Password</label>
+          <input id="confirm" name="confirm" type="password" required class="w-full p-2 border border-gray-300 rounded"/>
+          <small class="text-red-600" data-for="confirm"></small>
         </div>
-
         <div>
-          <label for="courseSelect" class="font-medium">Select course</label>
-          <select id="courseSelect"
-                  class="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300">
+          <label for="courseSelect" class="block mb-1">Select Course</label>
+          <select id="courseSelect" required class="w-full p-2 border border-gray-300 rounded">
             <option value="">Pick a course</option>
           </select>
-          <small class="error text-red-600 text-sm" data-for="courseSelect"></small>
+          <small class="text-red-600" data-for="courseSelect"></small>
         </div>
-
-        <div class="flex gap-3">
-          <button type="submit"
-                  class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-            Sign up
-          </button>
-
-          <button type="reset"
-                  class="px-4 py-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-100">
-            Reset
-          </button>
+        <div class="flex gap-2">
+          <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Sign Up</button>
+          <button type="reset" class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded">Reset</button>
         </div>
-
-        <p id="signupMessage" class="text-green-600 text-sm"></p>
-
+        <p id="signupMessage" class="text-green-600 mt-2"></p>
       </form>
     </section>
 
   </main>
 
-  <footer class="text-center text-gray-500 py-4 mt-10">
+  <!-- Footer -->
+  <footer class="text-center text-gray-500 py-6">
     &copy; <span id="year"></span> Courses Catalog
   </footer>
 
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
