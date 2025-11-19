@@ -80,13 +80,21 @@ function showCourses() {
 // Render current page of courses
 function renderCourses() {
   const start = (state.page - 1) * state.perPage;
-  const pageCourses = filteredCourses.slice(start, start + state.perPage);
+  const items = filtered.slice(start, start + state.perPage);
 
-  coursesList.innerHTML = pageCourses.map(c => `
-    <article class="course-card">
-      <h3>${c.title}</h3>
-      <div class="meta">${c.instructor} • ${c.duration} • <span class="badge">${c.category}</span></div>
-      <p class="meta">Rating: ${c.rating} • Price: ${c.price} • Enrolled: ${c.enrolled}</p>
+  coursesList.innerHTML = items.map(c => `
+    <article class="bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition duration-300">
+      <h3 class="text-lg font-semibold mb-1 text-gray-800">${c.title}</h3>
+      <div class="text-sm text-gray-500 mb-2">
+        ${c.instructor} • ${c.duration} • 
+        <span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full text-xs">${c.category}</span>
+      </div>
+      <p class="text-sm text-gray-600 mb-2">
+        ⭐ ${c.rating} • 💰 ${c.price} • 👥 ${c.enrolled}
+      </p>
+      <button class="mt-2 w-full bg-blue-500 hover:bg-blue-600 text-white py-1.5 rounded-md transition">
+        Enroll Now
+      </button>
     </article>
   `).join('');
 
