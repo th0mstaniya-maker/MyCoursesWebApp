@@ -1,0 +1,8 @@
+[
+  {"courseId":"C101","title":"Introduction to Web Development","instructor":"John Doe","duration":"10 hours","rating":4.5,"category":"Web Development","price":"$50","enrolled":2500},
+  {"courseId":"C102","title":"JavaScript: From Zero to Hero","instructor":"Priya Sharma","duration":"20 hours","rating":4.7,"category":"Programming","price":"$80","enrolled":4200},
+  {"courseId":"C103","title":"Responsive CSS & Flexbox","instructor":"Michael Chen","duration":"8 hours","rating":4.4,"category":"Web Development","price":"$40","enrolled":1800},
+  {"courseId":"C104","title":"Data Analysis with Python","instructor":"Aisha Khan","duration":"25 hours","rating":4.8,"category":"Data Science","price":"$120","enrolled":3300},
+  {"courseId":"C105","title":"UI/UX Design Fundamentals","instructor":"Liam O'Connell","duration":"12 hours","rating":4.3,"category":"Design","price":"$60","enrolled":1400},
+  {"courseId":"C106","title":"Machine Learning Basics","instructor":"Sara López","duration":"30 hours","rating":4.6,"category":"Data Science","price":"$150","enrolled":2900}
+]
